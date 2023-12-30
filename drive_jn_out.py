@@ -13,6 +13,14 @@ def devices_in():
     return devices
 
 
+def list_folders(drive):
+    folder_paths = []
+    for root, _, files in os.walk(drive + ":\\"):
+        for folder in files:
+            folder_path = os.path.join(root, folder)
+            folder_paths.append(folder_path)
+    return folder_paths
+
 
 def look_for_devices():
     now = devices_in()[1:]
